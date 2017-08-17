@@ -1,0 +1,18 @@
+core:
+    resource: "@CoreBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+page:
+    resource: "@PageBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+web:
+    resource: "@WebBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
