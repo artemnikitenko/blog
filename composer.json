@@ -8,7 +8,8 @@
             "AppBundle\\": "src/AppBundle",
             "WebBundle\\": "src/WebBundle",
             "CoreBundle\\": "src/CoreBundle",
-            "PageBundle\\": "src/PageBundle"
+            "PageBundle\\": "src/PageBundle",
+            "OopBundle\\": "src/OopBundle"
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },

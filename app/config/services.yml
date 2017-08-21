@@ -33,3 +33,17 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    # OopBundle
+    OopBundle\:
+        resource: '../../src/OopBundle/*'
+        exclude: '../../src/OopBundle/{Entity,Repository,Tests}'
+
+    # explicitly configure the service
+    OopBundle\Service\ShopProduct:
+        public: true
+
+    OopBundle\Controller\:
+        resource: '../../src/OopBundle/Controller'
+        public: true
+        tags: ['controller.service_arguments']
