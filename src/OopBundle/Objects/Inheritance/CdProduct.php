@@ -1,7 +1,7 @@
 <?php
 
 
-namespace OopBundle\Inheritance;
+namespace OopBundle\Objects\Inheritance;
 
 
 class CdProduct extends ShopProduct

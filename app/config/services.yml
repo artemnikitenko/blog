@@ -40,7 +40,7 @@ services:
         exclude: '../../src/OopBundle/{Entity,Repository,Tests}'
 
     # explicitly configure the service
-    OopBundle\Service\ShopProduct:
+    OopBundle\Service\Product:
         public: true
 
     OopBundle\Controller\:

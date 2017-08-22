@@ -4,7 +4,7 @@
 namespace OopBundle\Service;
 
 
-class ShopProduct
+class Product
 {
     public $title = 'Teest';
     public $producerMainName = 'MainName';

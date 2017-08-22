@@ -2,12 +2,13 @@
 
 namespace OopBundle\Controller;
 
-use OopBundle\Inheritance\CdProduct;
-use OopBundle\Inheritance\BookProduct;
+use OopBundle\Objects\Inheritance\CdProduct;
+use OopBundle\Objects\Inheritance\BookProduct;
+use OopBundle\Objects\StaticExample\StaticExample;
+use OopBundle\Service\Product;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-use OopBundle\Service\ShopProduct;
 
 /**
  * Class DefaultController
@@ -27,7 +28,9 @@ class DefaultController extends Controller
         $bookProduct = new BookProduct('Book', 'BookProducer', 'BookProducerFirst', 500, 1000);
         echo('<pre>');
         var_dump($cdProduct->getSummaryLine());
+        var_dump($cdProduct::Test);
         var_dump($bookProduct->getSummaryLine());
+        var_dump($bookProduct::Test);
         exit;
         return $this->render('OopBundle:Default:index.html.twig');
     }
@@ -37,9 +40,20 @@ class DefaultController extends Controller
      */
     public function servAction()
     {
-        $shopProduct = $this->get(ShopProduct::class);
+        $shopProduct = $this->get(Product::class);
         echo('<pre>');
         var_dump($shopProduct->getTitle());
+        exit;
+
+    }
+
+    /**
+     * @Route("/static")
+     */
+    public function staticAction()
+    {
+        echo('<pre>');
+        var_dump(StaticExample::sayHello());
         exit;
 
     }
