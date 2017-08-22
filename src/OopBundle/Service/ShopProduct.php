@@ -6,23 +6,13 @@ namespace OopBundle\Service;
 
 class ShopProduct
 {
-    public $title;
-    public $producerMainName;
-    public $producerFirstName;
-    public $price;
+    public $title = 'Teest';
+    public $producerMainName = 'MainName';
+    public $producerFirstName = 'FirstName';
 
-//    public function __construct($title, $producerMainName, $producerFirstName, $price)
-//    {
-//        $this->title = $title;
-//        $this->producerMainName = $producerMainName;
-//        $this->producerFirstName = $producerFirstName;
-//        $this->price = $price;
-//    }
-
-    public function getProducer()
+    public function getTitle()
     {
-        return $this->producerFirstName." ".$this->producerMainName;
+        return $this->title;
     }
-
 
 }

@@ -24,5 +24,12 @@ class ShopProduct
         return $this->producerFirstName." ".$this->producerMainName;
     }
 
+    public function getSummaryLine()
+    {
+        $base = "$this->title  $this->producerMainName";
+        $base .= " $this->producerFirstName";
+        return $base;
+    }
+
 
 }
