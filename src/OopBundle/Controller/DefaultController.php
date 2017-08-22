@@ -4,10 +4,12 @@ namespace OopBundle\Controller;
 
 use OopBundle\Inheritance\CdProduct;
 use OopBundle\Inheritance\BookProduct;
+use OopBundle\Inheritance\ShopProduct;
+use OopBundle\Objects\AbstractInterfaceTrait\Interf;
+use OopBundle\Objects\AbstractInterfaceTrait\TextProductWriter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-use OopBundle\Service\ShopProduct;
 
 /**
  * Class DefaultController
@@ -37,10 +39,34 @@ class DefaultController extends Controller
      */
     public function servAction()
     {
-        $shopProduct = $this->get(ShopProduct::class);
-        echo('<pre>');
-        var_dump($shopProduct->getTitle());
+//        $shopProduct = $this->get(ShopProduct::class);
+//        echo('<pre>');
+//        var_dump($shopProduct->getTitle());
         exit;
 
     }
+
+    /**
+     * @Route("/abstract")
+     */
+    public function abstractAction()
+    {
+        $shopProduct = new ShopProduct('title', 'producerMainName', 'producerFirstName', 'price');
+        $textProduct = new TextProductWriter();
+        $textProduct->addProduct($shopProduct);
+        $textProduct->write();
+
+    }
+
+    /**
+     * @Route("/interface")
+     */
+    public function interfactAction()
+    {
+        $interf = new Interf();
+        var_dump($interf->write());
+        exit;
+        return $this->render('OopBundle:Default:index.html.twig');
+    }
+
 }
