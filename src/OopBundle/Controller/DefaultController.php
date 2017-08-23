@@ -4,6 +4,7 @@ namespace OopBundle\Controller;
 
 use OopBundle\Objects\Inheritance\CdProduct;
 use OopBundle\Objects\Inheritance\BookProduct;
+use OopBundle\Objects\LateStatic\Phone;
 use OopBundle\Objects\StaticExample\StaticExample;
 use OopBundle\Objects\Inheritance\ShopProduct;
 use OopBundle\Objects\AbstractInterfaceTrait\Interf;
@@ -94,6 +95,16 @@ class DefaultController extends Controller
         var_dump($car::sayHello());
         var_dump($car->getN());
 
+        exit;
+    }
+
+    /**
+     * @Route("/lstatic")
+     */
+    public function lstaticAction()
+    {
+        echo('<pre>');
+        var_dump(Phone::create());
         exit;
     }
 
