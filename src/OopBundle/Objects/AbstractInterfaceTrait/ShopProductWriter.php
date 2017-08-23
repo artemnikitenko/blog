@@ -2,7 +2,7 @@
 
 namespace OopBundle\Objects\AbstractInterfaceTrait;
 
-use OopBundle\Inheritance\ShopProduct;
+use OopBundle\Objects\Inheritance\ShopProduct;
 
 abstract class ShopProductWriter
 {
