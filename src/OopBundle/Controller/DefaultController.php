@@ -2,6 +2,7 @@
 
 namespace OopBundle\Controller;
 
+use OopBundle\Objects\CallBackFunctions\ProcessSale;
 use OopBundle\Objects\Inheritance\CdProduct;
 use OopBundle\Objects\Inheritance\BookProduct;
 use OopBundle\Objects\InterceptorMethods\Person;
@@ -14,6 +15,7 @@ use OopBundle\Objects\AbstractInterfaceTrait\TextProductWriter;
 use OopBundle\Objects\Traits\Car;
 use OopBundle\Objects\InterceptorMethods\Car as Car1;
 use OopBundle\Service\Product;
+use OopBundle\Objects\CallBackFunctions\Phone as Phone1;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -145,6 +147,22 @@ class DefaultController extends Controller
          * check __toString
          */
         echo $car1;
+        exit;
+    }
+
+    /**
+     * @Route("/callfunc")
+     */
+    public function callfuncAction()
+    {
+        echo('<pre>');
+        $loger = function ($phone) {
+            print "Write $phone->name";
+        };
+        $proc = new ProcessSale();
+        $proc->registerCallbacks($loger);
+        $proc->sale(new Phone1('Nokia', 5));
+
         exit;
     }
 
