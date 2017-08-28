@@ -12,6 +12,7 @@ use OopBundle\Objects\Inheritance\ShopProduct;
 use OopBundle\Objects\AbstractInterfaceTrait\Interf;
 use OopBundle\Objects\AbstractInterfaceTrait\TextProductWriter;
 use OopBundle\Objects\Traits\Car;
+use OopBundle\Objects\InterceptorMethods\Car as Car1;
 use OopBundle\Service\Product;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -129,6 +130,21 @@ class DefaultController extends Controller
          */
         $p->writeAge();
         $p->writeName();
+
+        /**
+         * check __clone
+         */
+        $car1 = new Car1();
+        $car1->setId(5);
+        $car2 = clone $car1;
+        echo('<pre>');
+        var_dump($car1->getId());
+        var_dump($car2->getId());
+
+        /**
+         * check __toString
+         */
+        echo $car1;
         exit;
     }
 
