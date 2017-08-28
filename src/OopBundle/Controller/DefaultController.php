@@ -4,6 +4,8 @@ namespace OopBundle\Controller;
 
 use OopBundle\Objects\Inheritance\CdProduct;
 use OopBundle\Objects\Inheritance\BookProduct;
+use OopBundle\Objects\InterceptorMethods\Person;
+use OopBundle\Objects\InterceptorMethods\PersonWriter;
 use OopBundle\Objects\LateStatic\Phone;
 use OopBundle\Objects\StaticExample\StaticExample;
 use OopBundle\Objects\Inheritance\ShopProduct;
@@ -105,6 +107,28 @@ class DefaultController extends Controller
     {
         echo('<pre>');
         var_dump(Phone::create());
+        exit;
+    }
+
+    /**
+     * @Route("/methods")
+     */
+    public function methodsAction()
+    {
+        echo('<pre>');
+        $p = new Person(new PersonWriter());
+        var_dump($p->time);
+        var_dump($p->name);
+        $p->age = 100;
+        $p->xx = 10000;
+        var_dump($p->getAge());
+        var_dump($p->xx);
+        var_dump('***********************************');
+        /**
+         * check __call
+         */
+        $p->writeAge();
+        $p->writeName();
         exit;
     }
 
